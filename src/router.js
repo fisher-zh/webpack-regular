@@ -1,3 +1,7 @@
+/**
+ * path 以pages为起始的文件路径
+ * name 文件名
+ */
 module.exports = [
   {
     path: 'index',

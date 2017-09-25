@@ -1,6 +1,6 @@
 import Regular from 'regularjs'
-
 import 'babel-polyfill'
+import './home.css'
 
 var app = new Regular({
   template: '<div>webpack45</div>',

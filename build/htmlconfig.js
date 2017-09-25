@@ -1,11 +1,11 @@
-var arr = require('../pages/router.js')
+var arr = require('../src/router.js')
 var fullpath = ''
 var htmlconfig = arr.map(function (value) {
   fullpath = (value.path ? (value.path + '/') : '') + value.name
   return {
     filename: 'views/' + value.name + '.html',
-    template: 'pages/' + fullpath + '.html',
-    chunks: ['vendor', value.path],
+    template: 'src/pages/' + fullpath + '.html',
+    chunks: ['vendor', value.name],
     inject: true
   }
 })

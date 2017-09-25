@@ -47,15 +47,18 @@ Object.keys(proxyTable).forEach(function (context) {
   app.use(proxyMiddleware(options.filter || context, options))
 })
 
-app.listen(port, function (err) {
-  if (err) {
-    console.log(err)
-    return
-  }
+devMiddleware.waitUntilValid(() => {
   if (config.dev.autoOpenBrowser) {
     opn('http://localhost:' + port + '/views')
   }
   console.log('The environment : ' + process.env.NODE_ENV + '\n')
   console.log(chalk.green('> Listening at ' + 'http://localhost:' + port + '/views\n'))
+})
+
+app.listen(port, function (err) {
+  if (err) {
+    console.log(err)
+    return
+  }
 })
 

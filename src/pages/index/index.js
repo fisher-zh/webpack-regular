@@ -1,4 +1,5 @@
 import Regular from 'regularjs'
+import '../../assets/css/style.css'
 
 var app = new Regular({
   template: '<div>webpack456</div>',

@@ -11,17 +11,15 @@ module.exports = {
   module: {
     rules: [
       {
-       test: /\.css$/,
-       exclude: /node_modules/,
-       include: path.resolve(__dirname, "./pages"),
-       use: [
-         'style-loader',
-         'css-loader'
-       ]
+        test: /\.css$/,
+        exclude: /node_modules/,
+        include: path.resolve(__dirname, "../src"),
+        use: ['style-loader', 'css-loader']
       },
       {
         test: /\.js$/,
         exclude: /node_modules/,
+        include: path.resolve(__dirname, "../src"),
         use: {
           loader: 'babel-loader',
           options: {
@@ -33,6 +31,17 @@ module.exports = {
             ]
           }
         }
+      },
+      {
+        test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
+        use: [
+          {
+            loader: 'url-loader',
+            options: {
+              limit: 8192
+            }
+          }
+        ]
       }
     ]
   }

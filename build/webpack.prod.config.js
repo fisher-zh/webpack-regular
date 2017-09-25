@@ -9,7 +9,6 @@ var htmlconfigArr = htmlconfig.map(function (value) {
   return new HtmlWebpackPlugin(value)
 })
 
-
 module.exports = merge(baseWebpackConfig, {
   module: {
   },
@@ -23,7 +22,6 @@ module.exports = merge(baseWebpackConfig, {
     path: path.resolve(__dirname, '../dist')
   },
   plugins: [
-    // http://vuejs.github.io/vue-loader/en/workflow/production.html
     new webpack.DefinePlugin({
       'process.env': config.build.env
     }),
@@ -31,7 +29,6 @@ module.exports = merge(baseWebpackConfig, {
     new webpack.optimize.CommonsChunkPlugin({
       name: 'vendor',
       minChunks: function(module, count) {
-        // any required modules inside node_modules are extracted to vendor
         return (
           module.resource &&
           /\.js$/.test(module.resource) &&

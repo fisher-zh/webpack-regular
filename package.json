@@ -1,0 +1,50 @@
+{
+  "name": "webpack-regular2.0",
+  "version": "2.0.0",
+  "description": "a regularjs project base on webpack",
+  "main": "index.js",
+  "scripts": {
+    "start": "node build/server.js",
+    "build": "node build/build.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fisher-zh/webpack-regular.git"
+  },
+  "keywords": [
+    "regular",
+    "webpack"
+  ],
+  "author": "fisher-zh",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/fisher-zh/webpack-regular/issues"
+  },
+  "homepage": "https://github.com/fisher-zh/webpack-regular#readme",
+  "devDependencies": {
+    "@babel/plugin-transform-runtime": "^7.1.0",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "css-loader": "^1.0.1",
+    "html-webpack-plugin": "^3.2.0",
+    "style-loader": "^0.23.1",
+    "webpack": "^4.26.1",
+    "webpack-cli": "^3.1.2",
+    "webpack-dev-server": "^3.1.10"
+  },
+  "dependencies": {
+    "@babel/core": "^7.1.6",
+    "@babel/preset-env": "^7.1.6",
+    "@babel/runtime": "^7.1.5",
+    "babel-loader": "^8.0.0-beta.0",
+    "babel-runtime": "^6.26.0",
+    "chalk": "^2.4.1",
+    "extract-text-webpack-plugin": "^3.0.2",
+    "node-sass": "^4.10.0",
+    "ora": "^3.0.0",
+    "regularjs": "^0.6.0",
+    "rimraf": "^2.6.2",
+    "sass-loader": "^7.1.0",
+    "spinner": "^0.3.4",
+    "webpack-merge": "^4.1.4"
+  }
+}

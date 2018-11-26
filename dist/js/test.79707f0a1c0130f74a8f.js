@@ -1,1 +1,0 @@
-webpackJsonp([2],{369:function(e,t,n){e.exports=n(370)},370:function(e,t,n){"use strict";var a=n(71);new(function(e){return e&&e.__esModule?e:{"default":e}}(a)["default"])({template:"<div>webpack45</div>",data:{name:"zfx"}}).$inject("#app")}},[369]);

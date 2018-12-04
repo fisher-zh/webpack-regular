@@ -11,7 +11,6 @@ const devServerOptions = Object.assign({}, webpackConfig.devServer, {
   }
 });
 
-WebpackDevServer.addDevServerEntrypoints(webpackConfig, devServerOptions);
 const compiler = Webpack(webpackConfig);
 const server = new WebpackDevServer(compiler, devServerOptions);
 

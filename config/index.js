@@ -1,3 +1,4 @@
+// console.log(process.env.NODE_ENV)
 const config = {
     devServer: {
         host: 'localhost',

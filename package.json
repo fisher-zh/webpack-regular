@@ -4,7 +4,7 @@
   "description": "a regularjs project base on webpack",
   "main": "index.js",
   "scripts": {
-    "start": "node build/server.js",
+    "dev": "webpack-dev-server --config build/webpack.dev.config.js",
     "build": "node build/build.js"
   },
   "repository": {
@@ -23,9 +23,13 @@
   "homepage": "https://github.com/fisher-zh/webpack-regular#readme",
   "devDependencies": {
     "@babel/plugin-transform-runtime": "^7.1.0",
+    "@babel/preset-env": "^7.2.0",
     "babel-plugin-transform-runtime": "^6.23.0",
+    "copy-webpack-plugin": "^4.6.0",
     "css-loader": "^1.0.1",
     "html-webpack-plugin": "^3.2.0",
+    "less": "^3.9.0",
+    "less-loader": "^4.1.0",
     "style-loader": "^0.23.1",
     "webpack": "^4.26.1",
     "webpack-cli": "^3.1.2",
@@ -33,14 +37,17 @@
   },
   "dependencies": {
     "@babel/core": "^7.1.6",
-    "@babel/preset-env": "^7.1.6",
     "@babel/runtime": "^7.1.5",
     "babel-loader": "^8.0.0-beta.0",
+    "babel-polyfill": "^6.26.0",
     "babel-runtime": "^6.26.0",
     "chalk": "^2.4.1",
-    "extract-text-webpack-plugin": "^3.0.2",
+    "mini-css-extract-plugin": "^0.4.5",
     "node-sass": "^4.10.0",
+    "optimize-css-assets-webpack-plugin": "^5.0.1",
     "ora": "^3.0.0",
+    "raw-loader": "^0.5.1",
+    "regular-state": "^0.6.0-beta.9",
     "regularjs": "^0.6.0",
     "rimraf": "^2.6.2",
     "sass-loader": "^7.1.0",

@@ -12,7 +12,25 @@ module.exports = merge(baseWebpackConfig, {
         contentBase: path.join(__dirname, '../dist'),
         compress: true,
         hot: true,
-        proxy: config.devServer.proxy
+        publicPath: '/',
+        // noInfo: true,
+        host: config.devServer.host || 'localhost',
+        port: config.devServer.port || 8080,
+        proxy: config.devServer.proxy || {},
+        stats: 'minimal'
+    },
+    module: {
+        rules: [
+            {
+                test: /\.(sa|sc|c)ss$/,
+                use: [
+                    'style-loader',
+                    'css-loader',
+                    'sass-loader',
+                    'less-loader',
+                ],
+            },
+        ]
     },
     plugins: [
         // 模块热替换

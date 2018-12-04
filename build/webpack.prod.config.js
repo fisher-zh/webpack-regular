@@ -1,8 +1,9 @@
 const path = require('path');
-// const webpack = require('webpack');
 const merge = require('webpack-merge');
-// const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const baseWebpackConfig = require('./webpack.base.config');
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = merge(baseWebpackConfig, {
     mode: 'production',
@@ -11,7 +12,7 @@ module.exports = merge(baseWebpackConfig, {
             chunks: 'all',
             minSize: 30000,
             maxSize: 0,
-            minChunks: 1,
+            minChunks: 2,
             maxAsyncRequests: 5,
             maxInitialRequests: 3,
             automaticNameDelimiter: '~',
@@ -28,7 +29,11 @@ module.exports = merge(baseWebpackConfig, {
                 }
             }
         },
-        minimize: true
+        minimize: true,
+        minimizer: [
+            // 压缩css
+            new OptimizeCSSAssetsPlugin({}),
+        ]
     },
     module: {
         rules: [
@@ -43,14 +48,27 @@ module.exports = merge(baseWebpackConfig, {
                         plugins: ['@babel/transform-runtime']
                     }
                 }
-            }
+            },
+            {
+                test: /\.(sa|sc|c)ss$/,
+                use: [
+                    MiniCssExtractPlugin.loader,
+                    'css-loader',
+                    'sass-loader',
+                    'less-loader',
+                ],
+            },
         ]
     },
     plugins: [
-        // 提取css
-        // new ExtractTextPlugin({
-        //     filename: 'build.min.css',
-        //     allChunks: true,
-        // })
+        new MiniCssExtractPlugin({
+            filename: "css/styles.css"
+        }),
+        new CopyWebpackPlugin([
+            {
+                from: path.join(__dirname, '../public/static'),
+                to: path.join(__dirname, '../dist/static'),
+            }
+        ])
     ]
 })

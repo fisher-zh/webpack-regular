@@ -1,5 +1,6 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const WorkboxPlugin = require('workbox-webpack-plugin');
 
 module.exports = {
     entry: path.join(__dirname, '../src/main'),
@@ -18,6 +19,12 @@ module.exports = {
         new HtmlWebpackPlugin({
             template: path.join(__dirname, '../public/index.template.html'),
             inject: true
+        }),
+        new WorkboxPlugin.GenerateSW({
+            // 这些选项帮助 ServiceWorkers 快速启用
+            // 不允许遗留任何“旧的” ServiceWorkers
+            clientsClaim: true,
+            skipWaiting: true
         })
     ]
 }
